@@ -4,7 +4,7 @@ https://ithelp.ithome.com.tw/articles/10196346
 
 ### How to start
 ```
-npm install
+yarn
 npm start
 ```
 ```
