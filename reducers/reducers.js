@@ -9,11 +9,11 @@ const calculator = handleActions(
   {
     PLUS: (state, { payload }) => ({
       ...state,
-      value: state.value + payload
+      value: state.value + payload.num
     }),
     MINUS: (state, { payload }) => ({
       ...state,
-      value: state.value - payload
+      value: state.value - payload.num
     })
   },
   defaultState
