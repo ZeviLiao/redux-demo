@@ -15,13 +15,14 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  devtool: 'source-map'
 };
 module.exports = config;

@@ -15,11 +15,7 @@ let middleware = {
 }
 
 let store = createStore(
-  calculatorApp,
-  composeEnhancers(
-    applyMiddleware(...middleware)
-    // other store enhancers if any
-  )
+  calculatorApp
 );
 console.log(store);
 

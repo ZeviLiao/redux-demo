@@ -1,26 +1,23 @@
+import { handleActions } from 'redux-actions';
 import { combineReducers } from 'redux';
-import { PLUS, MINUS } from '../actions/action.js';
 
-const initialData = {
+const defaultState = {
   value: 0
 };
 
-function calculator(state = initialData, action) {
-  switch (action.type) {
-    case PLUS:
-      console.log('++');
-      return Object.assign({}, state, {
-        value: state.value + action.num
-      });
-    case MINUS:
-      console.log('--');
-      return Object.assign({}, state, {
-        value: state.value - action.num
-      });
-    default:
-      return state;
-  }
-}
+const calculator = handleActions(
+  {
+    PLUS: (state, { payload }) => ({
+      ...state,
+      value: state.value + payload
+    }),
+    MINUS: (state, { payload }) => ({
+      ...state,
+      value: state.value - payload
+    })
+  },
+  defaultState
+);
 
 const calculatorApp = combineReducers({
   calculator

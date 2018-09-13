@@ -1,17 +1,9 @@
+import { createAction } from 'redux-actions';
+
 // action types
 export const PLUS = 'PLUS';
 export const MINUS = 'MINUS';
 
-// action creators
-export function add() {
-  return {
-    type: PLUS,
-    num: 1
-  };
-}
-export function sub() {
-  return {
-    type: MINUS,
-    num: 1
-  };
-}
+export const add = createAction(PLUS, () => 1);
+export const sub = createAction(MINUS, () => 1);
+
