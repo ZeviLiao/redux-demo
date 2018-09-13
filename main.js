@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import calculatorApp from './reducers/reducers';
 import App from './App';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { add, sub } from './actions/action';
+const composeEnhancers = composeWithDevTools({
+  // Specify custom devTools options
+});
 
-let store = createStore(calculatorApp);
+let middleware = {
+  composeWithDevTools
+}
+
+let store = createStore(
+  calculatorApp,
+  composeEnhancers(
+    applyMiddleware(...middleware)
+    // other store enhancers if any
+  )
+);
 console.log(store);
 
 ReactDOM.render(
